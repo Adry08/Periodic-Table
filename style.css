@@ -147,7 +147,6 @@ h1{
     position: absolute;
     top: 40%;
     left: 50%;
-    transform: translate(-50%,-50%);
     background-color: aliceblue;
     z-index: 2;
     display: none;
@@ -158,8 +157,9 @@ h1{
 }
 
 #number,#symbol,#atomic_mass{
-    display: flex;
+    display: flex ;
     align-items: center;
+    display: -webkit-flex;
 }
 
 #number,#atomic_mass{
@@ -185,7 +185,13 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.output, #remove{
     transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -o-transform: translate(-50%,-50%);
+    -webkit-transform: translate(-50%,-50%);
 }
 
 #btnName{
@@ -205,7 +211,7 @@ h1{
     padding: 20px;
     /* text-align: center; */
     word-wrap:break-word;
-    text-align: justify;
+    text-align: left;
     
 }
 
@@ -225,8 +231,30 @@ h1{
         height: 30px;
         width: 30px;
         font-size: medium;
+        border: 0.5px solid;
     }
 
+    #btnName{
+        font-size:medium;
+    }
+
+    #symbol{
+        font-size: 4rem;
+    }
+
+    #number,#atomic_mass{
+        font-size: large;
+    }
+
+    .output{
+        height: 150px;
+        width: 150px;
+    }
+
+    #remove{
+        height: 30px;
+        width: 30px;
+    }
 
 }
 @media screen and (max-width : 700px ){
@@ -235,6 +263,28 @@ h1{
         height: 3vw;
         width: 3vw;
         font-size: xx-small;
+        border: 0.25px solid;
+
+    }
+    #btnName{
+        font-size:small;
     }
     
+    #symbol{
+        font-size: 3rem;
+    }
+
+    #number,#atomic_mass{
+        font-size: medium;
+    }
+
+    .output{
+        height: 125px;
+        width: 125px;
+    }
+
+    #remove{
+        height: 20px;
+        width: 20px;
+    }
 }

@@ -1,0 +1,240 @@
+/* *{
+    border: red solid 1px;
+} */
+
+
+
+body {
+    background-color: rgb(22, 22, 22);
+
+}
+
+.container{
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+
+h1{
+    text-align: center;
+    color: aliceblue;
+}
+
+.disable{
+    filter: contrast(0) blur(5px);
+    cursor:not-allowed;
+}
+
+#table{
+    display: grid;
+    grid-template-columns: repeat(18,1fr);
+    grid-template-rows: repeat(10,1fr);
+    padding: 10px;
+    border: red solid 1px;
+    width: fit-content;
+    margin: 0 auto;
+}
+.element{
+    height: 40px;
+    width: 40px;
+    font-size: x-large;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    border-radius: 3px;
+    user-select: none;
+    transition: all ease-in 10ms;
+    text-decoration: underline;
+    text-underline-offset: 15%;
+    
+}
+
+.period{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+}
+
+
+.nonMetal{
+    border: greenyellow solid 3px;
+    color: greenyellow;
+}
+.nonMetal:hover{
+    background-color:greenyellow;
+}
+
+.nobleGas{
+    border: dodgerblue solid 3px;
+    color: dodgerblue;
+}
+.nobleGas:hover{
+    background-color:dodgerblue;
+}
+
+.alkaliMetal{
+    border: crimson  solid 3px;
+    color: crimson;
+}
+.alkaliMetal:hover{
+    background-color:crimson;
+}
+.alkaliEarthMetal{
+    border: gold solid 3px;
+    color: gold;
+}
+.alkaliEarthMetal:hover{
+    background-color:gold;
+}
+
+.metalloid{
+    border: lightgreen solid 3px;
+    color:lightgreen;
+}
+.metalloid:hover{
+    background-color:lightgreen;
+}
+
+.unknown{
+    border: darkgray solid 3px;
+    color: darkgray;
+}
+.unknown:hover{
+    background-color: darkgray;
+}
+
+.transitionMetal{
+    border: salmon solid 3px;
+    color:salmon;
+}
+.transitionMetal:hover{
+    background-color:salmon;
+}
+
+.actinide{
+    border: magenta solid 3px;
+    color: magenta;
+}
+.actinide:hover{
+    background-color: magenta;
+}
+
+.lanthanide{
+    border: hotpink solid 3px;
+    color: hotpink;
+}
+.lanthanide:hover{
+    background-color: hotpink;
+}
+
+.post-transitionMetal{
+    border: turquoise solid 3px;
+    color:turquoise;
+}
+.post-transitionMetal:hover{
+    background-color:turquoise;
+}
+.element:hover{
+    cursor: pointer;
+    color: white;
+}
+
+.output{
+    border: rgb(24, 22, 22) solid 1px;
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: aliceblue;
+    z-index: 2;
+    display: none;
+    grid-template-rows: repeat(3,1fr) 20%;
+    padding: 10px;
+    
+
+}
+
+#number,#symbol,#atomic_mass{
+    display: flex;
+    align-items: center;
+}
+
+#number,#atomic_mass{
+    justify-content: end;
+    margin-right: 20px;
+    font-size: xx-large;
+
+}
+
+#symbol{
+    justify-content: center;
+    font-size: 5rem;
+}
+
+#remove{
+    background-color: red;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    position: absolute;
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-50%,-50%);
+}
+
+#btnName{
+    cursor: pointer;
+    font-size: large;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: block;
+    appearance: none;
+    
+}
+
+#text{
+    margin: 20px auto;
+    background-color: aliceblue;
+    width: 70vw;
+    padding: 20px;
+    /* text-align: center; */
+    word-wrap:break-word;
+    text-align: justify;
+    
+}
+
+.upper{
+    text-transform: capitalize;
+}
+
+#text,.output,#table,#remove , #btnName{
+    transition: ease-in-out 10ms;
+    border-radius: 20px;
+}
+
+
+@media screen and (max-width : 900px ){
+    
+    .element{
+        height: 30px;
+        width: 30px;
+        font-size: medium;
+    }
+
+
+}
+@media screen and (max-width : 700px ){
+    
+    .element{
+        height: 3vw;
+        width: 3vw;
+        font-size: xx-small;
+    }
+    
+}

@@ -9,10 +9,26 @@ body {
 
 }
 
+:root{
+    --nonMetal:greenyellow;
+    --nobleGas:dodgerblue;
+    --alkaliMetal:crimson;
+    --alkaliEarthMetal:gold;
+    --metalloid:lightgreen;
+    --unknown:darkgrey;
+    --transitionMetal:salmon;
+    --actinide:fuchsia;
+    --lanthanide:hotpink;
+    --post-transitionMetal:turquoise;
+    
+    
+}
+
 .container{
     width: fit-content;
     margin: 0 auto;
     position: relative;
+
 }
 
 h1{
@@ -58,82 +74,82 @@ h1{
 
 
 .nonMetal{
-    border: greenyellow solid 3px;
-    color: greenyellow;
+    border: var(--nonMetal) solid 3px;
+    color: var(--nonMetal);
 }
 .nonMetal:hover{
-    background-color:greenyellow;
+    background-color:var(--nonMetal);
 }
 
 .nobleGas{
-    border: dodgerblue solid 3px;
-    color: dodgerblue;
+    border: var(--nobleGas) solid 3px;
+    color: var(--nobleGas);
 }
 .nobleGas:hover{
-    background-color:dodgerblue;
+    background-color:var(--nobleGas);
 }
 
 .alkaliMetal{
-    border: crimson  solid 3px;
-    color: crimson;
+    border: var(--alkaliMetal)  solid 3px;
+    color: var(--alkaliMetal);
 }
 .alkaliMetal:hover{
-    background-color:crimson;
+    background-color:var(--alkaliMetal);
 }
 .alkaliEarthMetal{
-    border: gold solid 3px;
-    color: gold;
+    border: var(--alkaliEarthMetal) solid 3px;
+    color: var(--alkaliEarthMetal);
 }
 .alkaliEarthMetal:hover{
-    background-color:gold;
+    background-color:var(--alkaliEarthMetal);
 }
 
 .metalloid{
-    border: lightgreen solid 3px;
-    color:lightgreen;
+    border: var(--metalloid) solid 3px;
+    color:var(--metalloid);
 }
 .metalloid:hover{
-    background-color:lightgreen;
+    background-color:var(--metalloid);
 }
 
 .unknown{
-    border: darkgray solid 3px;
-    color: darkgray;
+    border: var(--unknown) solid 3px;
+    color: var(--unknown);
 }
 .unknown:hover{
-    background-color: darkgray;
+    background-color: var(--unknown);
 }
 
 .transitionMetal{
-    border: salmon solid 3px;
-    color:salmon;
+    border: var(--transitionMetal) solid 3px;
+    color: var(--transitionMetal);
 }
 .transitionMetal:hover{
-    background-color:salmon;
+    background-color: var(--transitionMetal);
 }
 
 .actinide{
-    border: magenta solid 3px;
-    color: magenta;
+    border: var(--actinide) solid 3px;
+    color: var(--actinide);
 }
 .actinide:hover{
-    background-color: magenta;
+    background-color: var(--actinide);
 }
 
 .lanthanide{
-    border: hotpink solid 3px;
-    color: hotpink;
+    border: var(--lanthanide) solid 3px;
+    color: var(--lanthanide);
 }
 .lanthanide:hover{
-    background-color: hotpink;
+    background-color: var(--lanthanide);
 }
 
 .post-transitionMetal{
-    border: turquoise solid 3px;
-    color:turquoise;
+    border: var(--post-transitionMetal) solid 3px;
+    color: var(--post-transitionMetal);
 }
 .post-transitionMetal:hover{
-    background-color:turquoise;
+    background-color: var(--post-transitionMetal);
 }
 .element:hover{
     cursor: pointer;
@@ -150,6 +166,8 @@ h1{
     background-color: aliceblue;
     z-index: 2;
     display: none;
+    display: -moz-grid;
+    display: -ms-grid;
     grid-template-rows: repeat(3,1fr) 20%;
     padding: 10px;
     
@@ -160,13 +178,14 @@ h1{
     display: flex ;
     align-items: center;
     display: -webkit-flex;
+    
 }
 
 #number,#atomic_mass{
     justify-content: end;
     margin-right: 20px;
     font-size: xx-large;
-
+    
 }
 
 #symbol{
@@ -174,7 +193,7 @@ h1{
     font-size: 5rem;
 }
 
-#remove{
+.remove{
     background-color: red;
     width: 40px;
     height: 40px;
@@ -185,9 +204,11 @@ h1{
     display: flex;
     align-items: center;
     justify-content: center;
+    left: 100%;
+    top: 0;
 }
 
-.output, #remove{
+.output, .remove{
     transform: translate(-50%,-50%);
     -moz-transform: translate(-50%,-50%);
     -o-transform: translate(-50%,-50%);
@@ -199,8 +220,7 @@ h1{
     font-size: large;
     margin: 0 auto;
     padding: 0 20px;
-    display: block;
-    appearance: none;
+    border: solid 1px;
     
 }
 
@@ -209,62 +229,78 @@ h1{
     background-color: aliceblue;
     width: 70vw;
     padding: 20px;
-    /* text-align: center; */
-    word-wrap:break-word;
-    text-align: left;
     
 }
 
-.upper{
-    text-transform: capitalize;
-}
 
-#text,.output,#table,#remove , #btnName{
+
+#text,.output,#table,.remove , #btnName{
     transition: ease-in-out 10ms;
     border-radius: 20px;
 }
 
+.img{
+    border: solid 1px;
+    width: 150px;
+    height: 150px;
+    margin: 10px auto;
+    overflow: hidden;
+    box-sizing: border-box;
+    word-break: break-all;
+    overflow: hidden;
+
+}
+
+.name{
+    text-align: center;
+    text-decoration: underline;
+}
+
+.summary{
+    text-align: justify;
+    background-color: blanchedalmond;
+    padding: 20px;
+    border-radius: 20px;
+    min-height: 50px;
+}
+
+.legend{
+    width: 200px;
+    margin: 20px auto;
+    font-size: x-small;
+    text-align: center;
+    
+}
+.general{
+    background-color: darkseagreen;    
+}
+
+.stat{
+    background-color:lightblue;
+}
+
+.stat, .general{
+    display: grid;
+    display: -ms-grid;
+    display: -moz-grid;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.stat>span,.general>span{
+    margin: 0 5px;
+}
 
 @media screen and (max-width : 900px ){
     
     .element{
-        height: 30px;
-        width: 30px;
-        font-size: medium;
-        border: 0.5px solid;
-    }
-
-    #btnName{
-        font-size:medium;
-    }
-
-    #symbol{
-        font-size: 4rem;
-    }
-
-    #number,#atomic_mass{
-        font-size: large;
-    }
-
-    .output{
-        height: 150px;
-        width: 150px;
-    }
-
-    #remove{
-        height: 30px;
-        width: 30px;
-    }
-
-}
-@media screen and (max-width : 700px ){
-    
-    .element{
         height: 3vw;
         width: 3vw;
-        font-size: xx-small;
+        font-size: 1.5vw;
         border: 0.25px solid;
-
+        text-underline-offset: 5%;
     }
     #btnName{
         font-size:small;
@@ -275,7 +311,8 @@ h1{
     }
 
     #number,#atomic_mass{
-        font-size: medium;
+        font-size:large;
+        
     }
 
     .output{
@@ -283,8 +320,52 @@ h1{
         width: 125px;
     }
 
-    #remove{
-        height: 20px;
-        width: 20px;
+    .remove{
+        height: 30px;
+        width: 30px;
+        font-size: 2.5vw;
     }
+
+    .stat,.general{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.bodyquiz{
+    background-color: rgb(107, 107, 107);
+    border-radius: 20px;
+}
+.containerquiz {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+    font-size: x-large;
+    border: red solid 1px;
+    border-radius: 20px;
+    padding: 20px;
+    min-height: 100px;
+    justify-content: center;
+}
+
+.true {
+    color: rgb(9, 190, 9);
+    text-decoration: underline;
+}
+
+.false {
+    color: rgb(238, 26, 26);
+    text-decoration: underline;
+}
+
+.disable {
+    display: none;
+}
+
+.buttonquiz {
+    cursor: pointer;
+    width: 100px;
+    height: 40px;
+    font-size: x-large;
 }

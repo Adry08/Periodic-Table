@@ -12,7 +12,7 @@ body {
 :root{
     --nonMetal:greenyellow;
     --nobleGas:dodgerblue;
-    --alkaliMetal:crimson;
+    --alkaliMetal:chocolate;
     --alkaliEarthMetal:gold;
     --metalloid:lightgreen;
     --unknown:darkgrey;
@@ -20,15 +20,12 @@ body {
     --actinide:fuchsia;
     --lanthanide:hotpink;
     --post-transitionMetal:turquoise;
-    
-    
 }
 
 .container{
     width: fit-content;
-    margin: 0 auto;
+    margin: 10px auto;
     position: relative;
-
 }
 
 h1{
@@ -46,9 +43,10 @@ h1{
     grid-template-columns: repeat(18,1fr);
     grid-template-rows: repeat(10,1fr);
     padding: 10px;
-    border: red solid 1px;
+    border: rgb(197, 197, 197) solid 1px;
     width: fit-content;
     margin: 0 auto;
+    gap: 2px;
 }
 .element{
     height: 40px;
@@ -62,19 +60,21 @@ h1{
     transition: all ease-in 10ms;
     text-decoration: underline;
     text-underline-offset: 15%;
+    text-shadow: currentColor 0 0 5px;
+    border: currentColor solid 3px;
     
 }
 
-.period{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
+.element:hover{
+    cursor: pointer;
+    color: whitesmoke;
+    box-shadow: currentColor 0 0 5px;
 }
+
 
 
 .nonMetal{
-    border: var(--nonMetal) solid 3px;
+    
     color: var(--nonMetal);
 }
 .nonMetal:hover{
@@ -82,7 +82,7 @@ h1{
 }
 
 .nobleGas{
-    border: var(--nobleGas) solid 3px;
+    
     color: var(--nobleGas);
 }
 .nobleGas:hover{
@@ -90,14 +90,14 @@ h1{
 }
 
 .alkaliMetal{
-    border: var(--alkaliMetal)  solid 3px;
+    
     color: var(--alkaliMetal);
 }
 .alkaliMetal:hover{
     background-color:var(--alkaliMetal);
 }
 .alkaliEarthMetal{
-    border: var(--alkaliEarthMetal) solid 3px;
+    
     color: var(--alkaliEarthMetal);
 }
 .alkaliEarthMetal:hover{
@@ -105,7 +105,7 @@ h1{
 }
 
 .metalloid{
-    border: var(--metalloid) solid 3px;
+    
     color:var(--metalloid);
 }
 .metalloid:hover{
@@ -113,7 +113,7 @@ h1{
 }
 
 .unknown{
-    border: var(--unknown) solid 3px;
+    
     color: var(--unknown);
 }
 .unknown:hover{
@@ -121,7 +121,7 @@ h1{
 }
 
 .transitionMetal{
-    border: var(--transitionMetal) solid 3px;
+    
     color: var(--transitionMetal);
 }
 .transitionMetal:hover{
@@ -129,7 +129,7 @@ h1{
 }
 
 .actinide{
-    border: var(--actinide) solid 3px;
+    
     color: var(--actinide);
 }
 .actinide:hover{
@@ -137,7 +137,7 @@ h1{
 }
 
 .lanthanide{
-    border: var(--lanthanide) solid 3px;
+    
     color: var(--lanthanide);
 }
 .lanthanide:hover{
@@ -145,16 +145,13 @@ h1{
 }
 
 .post-transitionMetal{
-    border: var(--post-transitionMetal) solid 3px;
+    
     color: var(--post-transitionMetal);
 }
 .post-transitionMetal:hover{
     background-color: var(--post-transitionMetal);
 }
-.element:hover{
-    cursor: pointer;
-    color: white;
-}
+
 
 .output{
     border: rgb(24, 22, 22) solid 1px;
@@ -251,6 +248,12 @@ h1{
 
 }
 
+.img img{
+    height: 150px;
+    width: 150px;
+}
+
+
 .name{
     text-align: center;
     text-decoration: underline;
@@ -293,7 +296,7 @@ h1{
     margin: 0 5px;
 }
 
-@media screen and (max-width : 900px ){
+@media (max-width : 900px ){
     
     .element{
         height: 3vw;
@@ -311,8 +314,7 @@ h1{
     }
 
     #number,#atomic_mass{
-        font-size:large;
-        
+        font-size:large; 
     }
 
     .output{
@@ -335,18 +337,25 @@ h1{
 .bodyquiz{
     background-color: rgb(107, 107, 107);
     border-radius: 20px;
+    width: 70vw;
+    margin: 20px auto;
+    
 }
+
 .containerquiz {
     display: flex;
     align-items: center;
     flex-direction: column;
-    margin: 20px 0;
     font-size: x-large;
-    border: red solid 1px;
+    border: rgb(189, 182, 182) solid 1px;
     border-radius: 20px;
     padding: 20px;
     min-height: 100px;
     justify-content: center;
+}
+
+.containerquiz #question{
+    margin: 20px;
 }
 
 .true {
@@ -359,13 +368,23 @@ h1{
     text-decoration: underline;
 }
 
-.disable {
-    display: none;
-}
-
 .buttonquiz {
     cursor: pointer;
-    width: 100px;
-    height: 40px;
+    width: 150px;
+    height: fit-content;
     font-size: x-large;
+    padding: 5px;
+    
+}
+
+.text-enter{
+    text-align: center;
+}
+
+#choose{
+    display: flex;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }

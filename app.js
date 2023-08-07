@@ -14,9 +14,9 @@ const getData = async(e) =>{
 
 
 const trieElement = (e)=>{
-    
+   
     const data = e;
-    for ( let i = 0 ; i < data.length  ; i++){
+    for (let i = 0 ; i < data.length  ; i++){
         let element = data[i];
 
         // console.log(i + " " + element.symbol + " : "+" Xpos : "+element.xpos+" | "+"Ypos : "+element.ypos );
@@ -150,8 +150,8 @@ const output = (e)=>{
         
         text.innerHTML = '';
         
-        const dataKeys = Object.keys(data);
-        const dataValue = Object.values(data);
+        // const dataKeys = Object.keys(data);
+        // const dataValue = Object.values(data);
         
         const btnRemove = document.createElement('div');
         btnRemove.className = 'remove';
@@ -168,7 +168,7 @@ const output = (e)=>{
         // }
         
         text.innerHTML += `<div class='container'><h2 class = 'name'>${data.name}</h2> 
-        <div class="img"><img src="${data.image.url}" alt="${data.image.attribution}" height="200px" width="200px" >
+        <div class="img"><img src="${data.image.url}" alt="${data.image.attribution}">
         </div><div class="legend">${data.image.title}</div>
         <div class="summary">${data.summary}</div></div>
         <div class="container"><div class="general">
@@ -180,10 +180,10 @@ const output = (e)=>{
         <span>Category : ${data.category}</span>
         </div></div>
         <div class="container"><div class="stat">
-        <span>Boil : ${data.boil}</span>
+        <span>Boil : ${data.boil} °C</span>
         <span>Discovered by : ${data.discovered_by}</span>
         <span>Density : ${data.density}</span>
-        <span>Melt : ${data.melt}</span>
+        <span>Melt : ${data.melt} °C</span>
         <span>Period : ${data.period}</span>
         <span>Group : ${data.group}</span>
         <span>Phase : ${data.phase}</span>
@@ -202,48 +202,84 @@ const output = (e)=>{
 
 getData(trieElement);
 
-// getData(click)
+getData(click)
 
 
 
-const answers = ["Br O H", "Ancient Egypt"]
 
+const getQuiz = async() => {
 
-const btn = document.querySelectorAll('.buttonquiz')
-const containerquiz = document.querySelectorAll('.containerquiz')
+    await fetch('./Quiz.json')
+        .then((response) => response.json())
+        .then((json) => {
+            let quiz = json.quiz
+            
+            let i = 0
+            quuiz(i,quiz);
+            
+        })
+    
+    
+} 
 
+getQuiz();
 
-let i = 0
+function quuiz(e,f){
+    let i = e;
+    
+    const quiz = f;
+    while (i < quiz.length ){
+        const question = document.getElementById('question');
+        question.innerHTML = quiz[i].question + ' <span>___</span> .';
 
-btn.forEach((e) => {
+        const choose = document.getElementById('choose');
+        choose.innerHTML = "";
 
-    e.addEventListener('click', () => {
-        if (i < answers.length) {
-
-            let rep = document.getElementById(`quiz${i}`)
-            if (e.value === answers[i]) {
-
-                rep.innerText = e.value;
-                rep.classList.remove('false')
-                rep.classList.add('true');
-
-                setTimeout(() => {
-                    containerquiz[i + 1].classList.remove('disable')
-                    containerquiz[i].classList.add('disable');
-                    i++
-                }, 1000)
-
-            } else {
-
-                rep.innerText = e.value;
-                rep.classList.add('false');
-                setTimeout(() => {
-                    rep.innerText = "____";
-                }, 500)
-
-            };
-
+        for (j of quiz[i].choix){
+            choose.innerHTML += `<button class="buttonquiz" id="${j}">${j}</button>`
         };
-    });
 
-});
+        const btnQuiz = document.querySelectorAll('.buttonquiz');
+        btnQuiz.forEach((e)=>{
+            e.addEventListener('click',(e)=>{
+                let choose = e.target;
+                let answer = quiz[i].answer;
+                const rep = document.querySelector('#question span');
+                if (answer === choose.id){
+                    rep.textContent = choose.id;
+                    rep.classList.add('true');
+                    choose.classList.add('true');
+                    setTimeout(()=>{
+                        choose.classList.remove('true');
+                        rep.classList.remove('true');
+                        rep.textContent = "____";
+                },500)
+                    i++;
+                    setTimeout(()=>{
+                        quuiz(i++,quiz)
+                    },700);
+                    
+                    
+                }else{
+                    rep.textContent = choose.id;
+                    rep.classList.add('false');
+                    choose.classList.add('false');
+                    setTimeout(()=>{
+                        choose.classList.remove('false');
+                        rep.classList.remove('false');
+                        rep.textContent = "____";
+                },500)
+                    
+                }
+
+            })
+           
+        })
+        break;
+        
+    }
+
+    if (i == quiz.length){
+        document.querySelector('.containerquiz').innerHTML = '<span class="text-enter">Félicitation <br> Tu as tout fini !</span>'
+    }
+}

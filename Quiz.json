@@ -1,0 +1,42 @@
+{
+    "quiz":[
+       {
+            "question":"Le Carbone a été decouvert part Ancient",
+            "choix":["Oriant","Egypt"],
+            "answer":"Egypt"
+        },
+        {
+            "question":"Cet élément fut trouver pour la premier dans la patate <br> Cet élément est le",
+            "choix":["Calcium","Potassium","Or","Plond"],
+            "answer":"Potassium"
+        },{
+            "question":"Cet élement à 32 életrons. Et fait réferene à l'allemagne. Il est le ",
+            "choix":["Germanium","Krypton","Baryum"],
+            "answer":"Germanium"
+        },{
+            "question":"HS : Hors-Service mais est également le ",
+            "choix":["Hafnium","Hassium"],
+            "answer":"Hassium"
+        },{
+            "question":"Je suis me situe à la 4éme période et à la 10éme colonne. Je suis le ",
+            "choix":["Zinc","Cuivre","Nickel"],
+            "answer":"Nickel"
+        },{
+            "question":"Il est l'élément le plus répendu dans l'univers. Il est l' ",
+            "choix":["Hydrogène","Hélium","Uranium"],
+            "answer":"Hydrogène"
+        },{
+            "question":"Le plus lourd élément present dans la nature. Est l' ",
+            "choix":["Plomb","Or","Uranium"],
+            "answer":"Uranium"
+        },{
+            "question":"Il fait illuminé les villes la nuit. Le ",
+            "choix":["Néon","Fluor"],
+            "answer":"Néon"
+        },{
+            "question":"Présent dans partout sur nos table avec la soude. Le ",
+            "choix":["Potassium","Chlore"],
+            "answer":"Chlore"
+        }
+    ]
+}

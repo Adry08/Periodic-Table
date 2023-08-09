@@ -170,7 +170,9 @@ const output = (e)=>{
         text.innerHTML += `<div class='container'><h2 class = 'name'>${data.name}</h2> 
         <div class="img"><img src="${data.image.url}" alt="${data.image.attribution}">
         </div><div class="legend">${data.image.title}</div>
+
         <div class="summary">${data.summary}</div></div>
+        
         <div class="container"><div class="general">
         <span>Symbol : ${data.symbol}</span>
         <span>Block : ${data.block}</span>
@@ -179,6 +181,12 @@ const output = (e)=>{
         <span>Number : ${data.number}</span>
         <span>Category : ${data.category}</span>
         </div></div>
+
+        <div class=""><div id="on">
+        <div class="center-circle"></div></div>
+        
+        </div>
+
         <div class="container"><div class="stat">
         <span>Boil : ${data.boil} °C</span>
         <span>Discovered by : ${data.discovered_by}</span>
@@ -192,7 +200,7 @@ const output = (e)=>{
         </div></div>
         <div class="container"><a href="${data.source}">More</a></div>
         `
-
+        animation(data);
         remove();
         
         
@@ -282,4 +290,50 @@ function quuiz(e,f){
     if (i == quiz.length){
         document.querySelector('.containerquiz').innerHTML = '<span class="text-enter">Félicitation <br> Tu as tout fini !</span>'
     }
+}
+
+
+function animation(e){
+    
+
+    const centerCircle = document.querySelector('.center-circle');
+    const orbitCounts =  e.shells;
+    const maxOrbitRadius = document.querySelector('#on').offsetWidth/2.5;
+    // const minOrbitRadius = document.querySelector('.center-circle').offsetWidth/2;
+    
+    
+
+    orbitCounts.forEach((sphereCount, orbitIndex) => {
+      const orbit = document.createElement('div');
+      orbit.className = `orbit orbit-${orbitIndex + 1}`;
+      orbit.style.animationDuration = `${((orbitIndex + 1)/orbitCounts.length)*50}s`;
+      orbit.style.webkitAnimationDuration = `${((orbitIndex + 1)/orbitCounts.length)*50}s`;
+        
+      centerCircle.style.width = `${maxOrbitRadius/orbitCounts.length}px`
+      centerCircle.appendChild(orbit);
+      const orbitRadius = (orbitIndex + 1) *((maxOrbitRadius / orbitCounts.length) ) ;
+    //   const orbitRadius = ((maxOrbitRadius/(orbitCounts.length)) + minOrbitRadius)*(orbitIndex + 1);
+        
+      orbit.style.width = `${orbitRadius * 2}px`;
+      orbit.style.height = `${orbitRadius * 2}px`;
+      orbit.style.top = `calc(50% - ${orbitRadius}px)`;
+      orbit.style.left = `calc(50% - ${orbitRadius}px)`;
+      let angleIncrement = (2 * Math.PI) / sphereCount;
+      
+    
+      
+      for (let i = 0; i < sphereCount; i++) {
+        let angle = (i * angleIncrement);
+        
+        const sphere = document.createElement('div');
+        sphere.className = 'sphere';
+        const x = orbitRadius * Math.cos(angle);
+        const y = orbitRadius * Math.sin(angle);
+        sphere.style.left = `calc(50% + ${x}px)`;
+        sphere.style.top = `calc(50% + ${y}px)`;
+        orbit.appendChild(sphere);    
+      }
+    });
+    
+
 }

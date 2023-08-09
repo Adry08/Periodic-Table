@@ -1,6 +1,4 @@
-/* *{
-    border: red solid 1px;
-} */
+
 
 
 
@@ -388,3 +386,60 @@ h1{
     justify-content: center;
     gap: 10px;
 }
+
+
+/*  */
+
+#on {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    max-width: 250px;
+    border-radius: 20%;
+    aspect-ratio: 1/1;
+    margin: 0 auto;
+    background-color: transparent;
+    overflow: hidden;
+    padding: 10px;
+  }
+
+  .center-circle {
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    position: relative;
+    border: blue solid 1px;
+    box-sizing: border-box;  
+  }
+
+  .orbit {
+    position: absolute;
+    border: 1px dashed gray;
+    border-radius: 50%;
+    box-sizing: border-box;
+    -o-animation:  right-spin linear infinite;
+    -moz-animation:  right-spin linear infinite ;
+    -webkit-animation: right-spin linear infinite;
+    
+    animation: right-spin linear infinite;
+  }
+  @keyframes right-spin {
+    100%{
+      transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+    }
+  }
+
+  .sphere {
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
